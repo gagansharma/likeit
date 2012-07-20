@@ -1,0 +1,101 @@
+= Likeit
+
+Rails gem for building a liking systems by using Active Records.
+
+by Gagan Sharma <developer.gagan@gmail.com>
+
+GitHub Project: https://github.com/gagansharma/likeit
+
+-----
+
+== Installation
+
+=== Rails 3
+
+If you would like to install it as gem, put this in your Gemfile:
+
+    gem 'likeit'
+
+If you would rather like to install it as plugin, run this command in your console:
+
+    rails plugin install git://github.com/gagansharma/likeit.git
+
+And then run:
+
+    rails generate likeit
+    rake db:migrate
+
+== Usage
+
+Just add `acts_as_liker` and `acts_as_likeable` to your models. You could mix them in the same model if you like. See the example below:
+
+    # A user can like on users or story
+    
+    class User < ActiveRecord::Base
+      acts_as_liker
+      acts_as_likeable
+    end
+    
+    class Story < ActiveRecord::Base
+      acts_as_likeable
+    end
+    
+    ------------------------------------------------------------------------------------------------
+    
+    # To like:
+    
+    @user = User.find(1)
+    @user2 = User.find(2)
+    @story = Story.find(1)
+    
+    @user1.like(@story)
+    @user1.like(@user2)
+    
+    ------------------------------------------------------------------------------------------------
+        
+    # To dis-like:
+    @user = User.find(1)
+    @user2 = User.find(2)
+    @story = Story.find(1)
+    
+    @user1.dislike(@story)
+    @user1.dislike(@user2)
+    
+    ------------------------------------------------------------------------------------------------
+    
+    # To check like status:
+    @user = User.find(1)
+    @user3 = User.find(3)
+    @story = Story.find(1)
+    
+    @user1.is_like(@story) #checks if @user1 already likes the @story or not -> return true or false
+    @user1.is_like(@user3) #checks if @user1 already likes @user3 or not -> return true or false
+    
+    ------------------------------------------------------------------------------------------------
+    
+    # To read all liked items by a user:
+    
+    @user = User.find(1)
+    @user.likings #return all the users and stories which are liked by @user
+    
+    ------------------------------------------------------------------------------------------------
+    
+    # To get all the users who liked any story or user:
+    
+    @user = User.find(1)
+    @user2 = User.find(2)
+    @story = Story.find(1)
+    
+    @user2.likes #return all the users who liked @user2
+    @story.likes #return all the users who liked @story
+    
+    ------------------------------------------------------------------------------------------------
+    
+    # To get count of all the users who liked any story or user:
+    
+    @user = User.find(1)
+    @user2 = User.find(2)
+    @story = Story.find(1)
+    
+    @user2.likes.count #return count of all the users who liked @user2
+    @story.likes.count #return count of all the users who liked @story
