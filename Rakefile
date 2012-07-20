@@ -3,7 +3,7 @@ require 'rake'
 require 'echoe'
 
 
-Echoe.new('likeit', '0.0.1') do |p|
+Echoe.new('likeit', '0.0.2') do |p|
   p.description     = "A generic Liking and Dis-Liking system."
   p.url             = "https://github.com/gagansharma/likeit"
   p.author          = "Gagan Sharma"
