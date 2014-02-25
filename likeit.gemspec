@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.email = %q{developer.gagan@gmail.com}
   s.extra_rdoc_files = ["README.rdoc", "lib/likeit.rb", "lib/likeit/likeable.rb", "lib/likeit/liker.rb", "lib/generators/likeit_generator.rb", "lib/generators/templates/migration.rb", "lib/generators/templates/model.rb"]
   s.files = ["README.rdoc", "Rakefile", "likeit.gemspec", "init.rb", "lib/likeit.rb", "lib/likeit/likeable.rb", "lib/likeit/liker.rb", "lib/generators/likeit_generator.rb", "lib/generators/templates/migration.rb", "lib/generators/templates/model.rb"]
-  s.homepage = %q{https://github.com/gagansharma/likeit}
+  s.homepage = %q{http://indiarc.in/likeit/}
   s.rdoc_options = ["--line-numbers", "--inline-source", "--title", "Likeit", "--main", "README.rdoc"]
   s.require_paths = ["lib"]
   s.rubyforge_project = %q{likeit}
